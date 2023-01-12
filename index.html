@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.0/angular.min.js" integrity="sha512-M7xRXhk9w4nRi4DAb7uORHxVdPxDJojQiUVx48fiXXaUS+ceQNLo4/EUoxHHPw7qV3M1Uz/zh9JpgXxzU2v/Kg=="
+     crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head> 
+<style>
+    td{
+        border: 1px solid black;
+        padding:10px
+    }
+</style>
+<body ng-init="firstname='ishank'  ; lastname='goel'"  >
+
+   
+  
+<div ng-app="mymodule" ng-controller="mycontroller">
+    <!-- {{message + arr[2]}}
+    {{{name:"ishank " , sername:"goel"}.name }}
+    {{['name' ,'qweq' ][1]}}
+    <div ng-init="firstname='ias' ">         -->
+    <!-- <input  ng-init = "firstname='sufh'" type="number" ng-model="num"></input>
+    {{obj.funct(1231,num)}} -->
+    <!-- {{firstname + " "  + lastname + " " + message}} -->
+        <ul ng-repeat = "ar in arr ">
+            <li>{{ar}}</li>
+        </ul>
+        <ul ng-repeat = "(key ,value) in obj">
+            <li>{{key + " -> " + value}}</li>
+        </ul>
+        Searching-  <input type="text" ng-model="searchtext">
+        {{searchtext}}
+     Row Limit -  <input type="number" ng-model="rowlimit">
+     <input type="checkbox" ng-model="val" >show Age</input>
+        <br></br>
+        orderBY-
+        <select ng-model="ordering">
+            <option name="name" >name</option>
+            <option name="age">age</option>
+            <option name="gender">gender</option>
+            <option name="likes">likes</option> 
+            <option name="dislike">dislikes</option> 
+
+        </select>
+    <table>
+        <tr>
+          <th>Name</th>
+          <th>age</th>
+          <th>gender</th>
+          <th>likes</th> 
+          <th>deslikes</th>
+          <th>action </th>
+        </tr>
+        <br></br> 
+        
+                  
+        <tr ng-repeat = "employe in employees |limitTo : rowlimit | orderBy :ordering |filter : names ">
+          <td>{{employe.name | uppercase}}</td>
+          <td>{{val ? employe.age : "##"}}</td>
+          <td>{{employe.gender |uppercase}}</td>
+          <td>{{employe.likes}}</td>
+          <td>{{employe.dislike}}</td>
+          <td><button ng-click="increment(employe)">like</button></td>
+          <td><button ng-click="decrement(employe)">dislike</button></td>
+        </tr>
+      
+      </table>
+
+
+    <!-- <ul>
+        <li ng-repeat="count in countries">
+            {{count.name}} index-> {{$index}}
+            <ul ng-repeat="a in count.cities">
+                <li>{{a}} index-> {{$index}} parentIndex-> {{$parent.$index}}</li>
+            </ul>
+        </li>
+    </ul> -->
+
+    <div ng-controller="mycontroller2">
+        {{testing}}
+        </div>
+
+</div>
+
+<!-- <div ng-app="mymodule2" ng-controller="mycontroller3">
+
+{{testings}}
+
+</div> -->
+
+
+
+</body>
+<script src = "index.js"></script>
+</html>
